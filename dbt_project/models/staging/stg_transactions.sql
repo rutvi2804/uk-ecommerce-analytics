@@ -40,7 +40,7 @@ filtered as (
     where
         is_cancelled = 0
         and stock_code not in ('POST', 'D', 'M', 'BANK CHARGES', 'PADS', 'DOT', 'CRUK')
-        and quantity > 0
+        and quantity > 0pip install ipykernel
         and unit_price > 0
         and description is not null
 
