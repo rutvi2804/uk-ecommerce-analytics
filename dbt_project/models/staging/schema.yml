@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_transactions
+    description: "Cleaned and filtered transaction data"
+    columns:
+      - name: invoice_no
+        description: "Invoice number"
+        tests:
+          - not_null
+
+      - name: stock_code
+        description: "Product stock code"
+        tests:
+          - not_null
+
+      - name: quantity
+        description: "Must be positive"
+        tests:
+          - not_null
+
+      - name: unit_price
+        description: "Must be positive"
+        tests:
+          - not_null
+
+      - name: total_price
+        description: "quantity x unit_price"
+        tests:
+          - not_null
+
+      - name: is_cancelled
+        description: "All should be false after filtering"
+        tests:
+          - not_null
+
+      - name: country
+        description: "Customer country"
+        tests:
+          - not_null

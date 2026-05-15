@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: uk_ecommerce
+    database: uk_ecommerce
+    schema: dbo
+    tables:
+      - name: raw_transactions
+        description: "Raw UK e-commerce transaction data loaded from Kaggle CSV"
+        columns:
+          - name: invoice_no
+            description: "Invoice number. Prefix C indicates cancellation."
+          - name: stock_code
+            description: "Product stock code"
+          - name: description
+            description: "Product description"
+          - name: quantity
+            description: "Units per transaction"
+          - name: invoice_date
+            description: "Invoice date and time"
+          - name: unit_price
+            description: "Unit price in GBP"
+          - name: customer_id
+            description: "Customer identifier. Null for guest purchases."
+          - name: country
+            description: "Customer country"

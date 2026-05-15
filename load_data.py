@@ -3,6 +3,7 @@ import sqlalchemy
 from sqlalchemy import create_engine,text
 import urllib
 import time
+import urllib
 
 #Configuration
 
@@ -17,9 +18,6 @@ SCHEMA = 'dbo'
 
 #Create database connection
 print("Connecting to SQL Server")
-
-#Direct connection string format 
-import urllib
 
 connection_string = (
     f"DRIVER={{ODBC Driver 17 for SQL Server}};"
