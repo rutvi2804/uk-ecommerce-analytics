@@ -30,9 +30,11 @@ models:
           - not_null
 
       - name: is_cancelled
-        description: "All should be false after filtering"
+        description: "All should be 0 after filtering"
         tests:
           - not_null
+          - accepted_values:
+              values: [0]
 
       - name: country
         description: "Customer country"

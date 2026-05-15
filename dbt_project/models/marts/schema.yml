@@ -1,0 +1,46 @@
+version: 2
+
+models:
+
+  - name: fct_sales
+    description: "Daily sales summary for trend analysis"
+    columns:
+      - name: sales_date
+        tests:
+          - not_null
+          - unique
+      - name: total_revenue
+        tests:
+          - not_null
+
+  - name: fct_rfm_segments
+    description: "RFM customer segmentation scores and labels"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+      - name: segment
+        tests:
+          - not_null
+
+  - name: fct_cohort
+    description: "Monthly cohort retention rates"
+    columns:
+      - name: cohort_month
+        tests:
+          - not_null
+      - name: retention_rate
+        tests:
+          - not_null
+
+  - name: fct_country_sales
+    description: "Sales breakdown by country"
+    columns:
+      - name: country
+        tests:
+          - not_null
+          - unique
+      - name: total_revenue
+        tests:
+          - not_null
