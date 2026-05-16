@@ -24,12 +24,12 @@ from dashboard.layout import (
     regional_layout
 )
 
-# ── LOAD DATA ────────────────────────────────────────────────
+# LOAD DATA 
 print("Loading data from SQL Server...")
 df_sales, df_rfm, df_cohort, df_country, df_raw = load_data()
 print("Data loaded successfully")
 
-# ── BUILD CHARTS ─────────────────────────────────────────────
+# BUILD CHARTS
 print("Building charts...")
 kpis         = kpi_figures(df_sales, df_rfm, df_country)
 fig_trend    = monthly_trend_chart(df_sales)
@@ -42,20 +42,20 @@ fig_bar      = country_bar_chart(df_country)
 fig_map      = country_map_chart(df_country)
 print("All charts built")
 
-# ── COLOURS ──────────────────────────────────────────────────
+#  COLOURS 
 BG_COLOR   = '#0F1117'
 CARD_COLOR = '#1A1D27'
 TEXT_COLOR = '#FFFFFF'
 PRIMARY    = '#4C9BE8'
 
-# ── APP ──────────────────────────────────────────────────────
+# APP 
 app = Dash(
     __name__,
     external_stylesheets=[dbc.themes.DARKLY],
     suppress_callback_exceptions=True
 )
 
-# ── SIDEBAR ──────────────────────────────────────────────────
+# SIDEBAR 
 sidebar = html.Div([
 
     html.Div([
@@ -139,7 +139,7 @@ sidebar = html.Div([
     'borderRight': '1px solid #2A2D3A'
 })
 
-# ── MAIN LAYOUT ──────────────────────────────────────────────
+# MAIN LAYOUT 
 app.layout = html.Div([
 
     dcc.Location(id='url', refresh=False),
@@ -158,7 +158,7 @@ app.layout = html.Div([
 ], style={'backgroundColor': BG_COLOR})
 
 
-# ── ROUTING CALLBACK ─────────────────────────────────────────
+#ROUTING CALLBACK
 @app.callback(
     Output('page-content', 'children'),
     Input('url', 'pathname')
@@ -174,6 +174,6 @@ def display_page(pathname):
         return overview_layout(kpis, fig_trend, fig_dow)
 
 
-# ── RUN ──────────────────────────────────────────────────────
+# RUN 
 if __name__ == '__main__':
     app.run(debug=True, port=8050)
